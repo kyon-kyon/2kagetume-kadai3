@@ -1,0 +1,34 @@
+<div class="container">
+
+        <p id="notice"></p>
+
+
+      	<h2>Log in</h2>
+
+<%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
+  <div class="field">
+    <label for="user_name">Name</label><br>
+    <input autofocus="autofocus" class="name" type="text" name="user[name]" id="user_name">
+  </div>
+  <div class="field">
+    <label for="user_password">Password</label><br>
+    <input autocomplete="off" class="password" type="password" name="user[password]" id="user_password">
+  </div>
+
+    <div class="field">
+      <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+      <label for="user_remember_me">Remember me</label>
+    </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Log in" class="btn btn-primary" data-disable-with="Log in">
+  </div>
+<% end %>
+
+  <a class="sign_up" href="/users/sign_up">Sign up</a><br>
+
+  <a href="/users/password/new">Forgot your password?</a><br>
+
+
+
+</div>
