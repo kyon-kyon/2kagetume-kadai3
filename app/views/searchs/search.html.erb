@@ -1,0 +1,33 @@
+
+ 
+ <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+        </tr>
+      </thead>
+
+<tbody>
+<% @datas.each do |data| %>
+  <% if data.class == User %>
+
+<tr>
+<td><%= attachment_image_tag data, :profile_image, fallback: "no_image.jpg", size: "30x30" %></td>
+<td><%= data.name %></td>
+
+<td><p>フォロー数:<%= data.following.count %></p></td>
+<td>フォロワー数:<%= data.followers.count %></td>
+
+</tr>
+
+<% else %>
+<% @datas.each do |data| %>
+<td><%= attachment_image_tag data.user, :profile_image, fallback: "no_image.jpg", size: "30x30" %></td>
+<td><%= data.title %></td>
+<% end %>
+
+<% end %>
+
+
+<% end %>

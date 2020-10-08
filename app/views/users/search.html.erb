@@ -1,0 +1,21 @@
+ <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+        </tr>
+      </thead>
+
+<tbody>
+<% @user.each do |user| %>
+
+<tr>
+<td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "30x30" %></td>
+<td><%= user.name %></td>
+<td><p>フォロー数:<%= user.following.count %></p></td>
+<td>フォロワー数:<%= user.followers.count %></td>
+
+<% end %>
+</tr>
+ 
+ 
